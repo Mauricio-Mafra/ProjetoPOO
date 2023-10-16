@@ -2,8 +2,21 @@
 {
     internal class Aluno : Pessoa
     {
-        public List<Curso> Cursos { get; private set; }
-        public int Matricula { get; private set; }
+        public List<Curso> Cursos { get; private set; } = new List<Curso>();
+
+        private int matricula;
+        public int Matricula { 
+            get => matricula;
+
+            private set { 
+                if (value < 0) {
+                    Console.WriteLine("Valor da matrícula deve ser maior que 0.");
+                    matricula = -1 * value;
+                    return;
+                }
+
+                matricula = value;
+            } }
 
         internal Aluno(string nome, int idade, Curso? curso, int matricula) :base (nome, idade)
         {
