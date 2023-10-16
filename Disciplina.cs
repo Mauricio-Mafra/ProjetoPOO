@@ -2,16 +2,17 @@
 {
     internal class Disciplina
     {
-        public string Nome {  get; set; }
+        public string Nome {  get; private set; }
 
         private int cargaHoraria;
-        public int CargaHoraria {
+        private int CargaHoraria {
             get => cargaHoraria;
 
-            private set { 
+            set { 
                 if (value < 0)
                 {
                     Console.WriteLine("A carga horária deve ser maior que 0");
+                    cargaHoraria = 1;
                     return;
                 }
                 cargaHoraria = value;
@@ -19,13 +20,14 @@
         }
 
         private string ementa;
-        public string Ementa { 
+        private string Ementa { 
             get => ementa;
             
-            private set { 
+            set { 
                 if (value == "")
                 {
                     Console.WriteLine("Inclua a ementa da disciplina.");
+                    ementa = "";
                     return;
                 }
                 ementa = value;
@@ -36,7 +38,22 @@
             CargaHoraria = cargaHoraria;
             Ementa = ementa;
         }
-
+        /// <summary>
+        /// Permite atualização da ementa de uma disciplina
+        /// </summary>
+        /// <param name="novaEmenta"></param>
+        public void AtualizarEmenta(string novaEmenta)
+        {
+            Ementa = novaEmenta;
+        }
+        /// <summary>
+        /// Permite a atualização da carga horária de uma disciplina
+        /// </summary>
+        /// <param name="novaCargaHoraria"></param>
+        public void AtualizarCargaHoraria(int novaCargaHoraria)
+        {
+            CargaHoraria = novaCargaHoraria;
+        }
 
 
         /// <summary>

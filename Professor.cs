@@ -2,7 +2,7 @@
 {
     internal class Professor : Pessoa
     {
-        List<Disciplina> Disciplinas { get; set; }
+        private List<Disciplina> Disciplinas { get; set; }
 
         internal Professor(string nome, int idade, Disciplina? disciplina) : base (nome, idade)
         {

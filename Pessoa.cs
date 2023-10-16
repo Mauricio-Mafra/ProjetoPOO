@@ -2,8 +2,8 @@
 {
     internal class Pessoa
     {
-        public string Nome { get; set; }
-        public int Idade { get; set; }
+        public string Nome { get; protected set; }
+        protected int Idade { get; set; }
 
 
         internal Pessoa(string nome, int idade) {

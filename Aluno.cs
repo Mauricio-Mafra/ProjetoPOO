@@ -2,7 +2,7 @@
 {
     internal class Aluno : Pessoa
     {
-        public List<Curso> Cursos { get; private set; } = new List<Curso>();
+        private List<Curso> Cursos { get; set; } = new List<Curso>();
 
         private int matricula;
         public int Matricula { 
